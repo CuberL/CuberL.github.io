@@ -53,7 +53,7 @@ Per Special (12 moves)</p>
 </pre></div>
 
 
-<p>我们可以发现，LFU和FRU用<code>U'</code>就可以替换，而URB和FRU则可以用<code>R'</code>。哪个才是正确的？LFU和FRU都在同一层（U面），但URB和FRU在不同层。所以URB和FRU与步骤<code>R'</code>，构成一个正确的替换。</p>
+<p>我们可以发现，LFU和FRU用<code>U'</code>就可以替换，而URB和FRU则可以用<code>R'</code>。哪个才是正确的？LFU和FRU都在同一层（U面），但URB和FRU与LFU在不同层。所以URB和FRU与步骤<code>R'</code>，构成一个正确的替换。</p>
 <p>所以互换的步骤就是我们循环(A B A' B')中的B。同理，我们可以利用这个循环找到A。</p>
 <p>有一个原则：插入那个不用来替换的块时，不可以打乱替换的那一层。以(URB FRU LFU)为例，我们可以看到LFU可以用<code>F'L'F</code>插入到FRU，记住，LFU必须到FRU上，而不能到RUF或者UFR，不然这个循环就被打乱了。我们可以看到步骤<code>F'L'F</code>在不打乱替换块那一层的情况下把LFU块插入到FRU的位置。</p>
 <p>现在我们有两部分步骤了，<code>F' L' F</code>和<code>R'</code>。但我们要说回这个循环。</p>
