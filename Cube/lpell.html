@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+        <title>LPELL - </title>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="container">
+            
+<div id="header">
+  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#Cube">Cube</a>&nbsp;»&nbsp;LPELL</div>
+</div>
+<div class="clearfix"></div>
+<div id="title">LPELL</div>
+  <div id="content">
+  <blockquote>
+<p>LPELL(Last pair and edges of the last layer)是一种完成最后一组F2L和最后一层所有棱块的方法。</p>
+<p><a href="" title="https://www.speedsolving.com/wiki/index.php/LPELL">原文链接</a></p>
+</blockquote>
+<h3 id="_1">中级方案</h3>
+<p>可以分成两步来解决：</p>
+<ul>
+<li>LPEOLL，修正所有的棱块色相并配对（任意顺序）。这个是凭直觉的一步，如果要用公式的话，可能要记忆跟ZBLS一样多的公式。</li>
+<li>LPEPLL，插入最后一组并完成所有棱块。一共有六种情况以及它们的镜像。</li>
+</ul>
+<p>LPELL在速拧中并不是很有用，但对于最少步却很有用。做完这步你就会L4C（剩四角），还有1/3的几率可以L3C（剩三角），1/324的几率跳过最后一层。所有的L4C都可以简单地用一两个插入来解决。在最少步中，还可以往构造序列中插入循环来减少步骤（如果可以找到消步点的话）。</p>
+<p>第二步最优的公式在本页下方。</p>
+<h3 id="_2">高级方案</h3>
+<p>第二种完成这一步的思路是先组对，然后再一步完成剩余的部分。第二步一共有48个公式以及48个镜像公式。“只”需要两次观察和180个公式就可以完成L4C、插入最后一组并完成最后一层。如果你只是看棱块会发现观察很难，但如果你学了颜色观察法，你会发现观察并不比COLL什么的难。</p>
+<h3 id="_3">疯狂方案</h3>
+<ul>
+<li>一步到位？</li>
+<li>别想了，有几千种情况。（六倍ZBLS）</li>
+</ul>
+<h2 id="lpepll-case">LPEPLL Case</h2>
+<blockquote>
+<p>要注意这里所有的公式都使用西方记法，小写字母代替双层转以及用x,y,z来表示转体。</p>
+</blockquote>
+<p>这些case的每次是两个棱块要到的位置，如果是右类型的话，就是在UL和UB上的棱块，而对于左类型就是UR和UB上的棱块。示意图假定角棱对在槽位上方时UF位上的棱块是归位的。如果UF上是错误的棱块，就用AUF（顶层调整）后观察。一些公式跟示意图一样摆放时可能需要在前面加入AUF步骤，在这里就不再具体写出。</p>
+<p>（这些公式）的平均步数是 6 HTM 但不包括前后的AUF。所有case都是相等的几率碰到（右类型和左类型都是1/2的几率，每组情况都是1/6的几率）。这里所有公式都是最优的，如果这个case有不止一个解法，各个解法都会对角块有不同的影响。</p>
+<h3 id="r-side-pair">R side pair</h3>
+<h4 id="r-lb">R LB</h4>
+<p><img alt="1" src="https://www.speedsolving.com/wiki/images/6/6a/LPELL_RLB.jpg" /></p>
+<p><strong>R U' R2 U2 R U R' U R</strong> (9 HTM)</p>
+<p><strong>D R' U R' U' R' U R2 D'</strong> (9 HTM)</p>
+<p><strong>F2 L' U' L U F2 R U' R'</strong> (9 HTM)</p>
+<h4 id="r-rb">R RB</h4>
+<p><img alt="2" src="https://www.speedsolving.com/wiki/images/f/ff/LPELL_RRB.jpg" /></p>
+<p><strong>R U2 R'</strong> (3 HTM)</p>
+<h4 id="r-lr">R LR</h4>
+<p><img alt="3" src="https://www.speedsolving.com/wiki/images/5/5c/LPELL_RLR.jpg" /></p>
+<p><strong>R U' R'</strong> (3 HTM)</p>
+<h4 id="r-rl">R RL</h4>
+<p><img alt="4" src="https://www.speedsolving.com/wiki/images/6/64/LPELL_RRL.jpg" /></p>
+<p><strong>R2 D L' B2 L D' R2</strong> (7 HTM)</p>
+<h4 id="r-bl">R BL</h4>
+<p><img alt="5" src="https://www.speedsolving.com/wiki/images/a/a5/LPELL_RBL.jpg" /></p>
+<p><strong>R U R' U' R U' R'</strong> (7 HTM)   </p>
+<p><strong>R U' R' U R U2 R'</strong> (7 HTM)</p>
+<h4 id="r-br">R BR</h4>
+<p><img alt="6" src="https://www.speedsolving.com/wiki/images/0/0e/LPELL_RBR.jpg" /></p>
+<p><strong>L' U2 R U R' U2 L</strong> (7 HTM)</p>
+<hr />
+<h3 id="l-side-pair">L side pair</h3>
+<h4 id="l-rb">L RB</h4>
+<p><img alt="1" src="https://www.speedsolving.com/wiki/images/a/a3/LPELL_LRB.jpg" /></p>
+<p><strong>L' U L2 U2 L' U' L U' L'</strong> (9 HTM)</p>
+<p><strong>D' L U' L U L U' L2 D</strong> (9 HTM)</p>
+<p><strong>F2 R U R' U' F2 L' U L</strong> (9 HTM)</p>
+<h4 id="l-lb">L LB</h4>
+<p><img alt="2" src="https://www.speedsolving.com/wiki/images/c/c0/LPELL_LLB.jpg" /></p>
+<p><strong>L' U2 L</strong> (3 HTM)</p>
+<h4 id="l-rl">L RL</h4>
+<p><img alt="3" src="https://www.speedsolving.com/wiki/images/3/34/LPELL_LRL.jpg" /></p>
+<p><strong>L' U L</strong> (3 HTM)</p>
+<h4 id="l-lr">L LR</h4>
+<p><img alt="4" src="https://www.speedsolving.com/wiki/images/9/92/LPELL_LLR.jpg" /></p>
+<p><strong>L2 D' R B2 R' D L2</strong> (7 HTM)</p>
+<h4 id="l-br">L BR</h4>
+<p><img alt="5" src="https://www.speedsolving.com/wiki/images/7/70/LPELL_LBR.jpg" /></p>
+<p><strong>L' U' L U L' U L</strong> (7 HTM)</p>
+<h4 id="l-bl">L BL</h4>
+<p><img alt="6" src="https://www.speedsolving.com/wiki/images/8/8d/LPELL_LBL.jpg" /></p>
+<p><strong>R U2 L' U' L U2 R'    </strong> (7 HTM)</p>
+</div>
+
+        </div>
+        <div id="footer">
+            <span>
+                Copyright © 2012-2014 .
+                Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+            </span>
+        </div>
+        
+    </body>
+</html>
