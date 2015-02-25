@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+        <title>计步度量标准 - </title>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="container">
+            
+<div id="header">
+  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#Cube">Cube</a>&nbsp;»&nbsp;计步度量标准</div>
+</div>
+<div class="clearfix"></div>
+<div id="title">计步度量标准</div>
+  <div id="content">
+  <blockquote>
+<p>HTM是一种惯用的度量标准。比如，上帝之数20步就是用HTM来计算步数。然而，从更精确的角度来看，QTM是更好的选择。除了HTM和QTM之外，本文还会其他几种度量标准。本文翻译整理自Speedsolving.com Wiki。</p>
+<p><a href="https://www.speedsolving.com/wiki/index.php/HTM">原文链接</a></p>
+</blockquote>
+<p><strong>度量标准</strong>（明确来说，是 <strong>计步度量标准</strong> 或者 <strong>转动度量标准</strong> )是一个用来衡量步数计算的约定。相同的一组转动可以在不同的度量标准下计算出不同的步数。</p>
+<h2 id="htm">HTM</h2>
+<p>Half Turn Metric (HTM),也被称作Face Turn Metric (FTM)，是一种3x3魔方的度量标准。转动任何一个面，任何一个角度都会被计作一步；这就与QTM有所不同因为转动半面被计为一步而不是两步。要重点注意的一点是，HTM中一个内层转动被计为两步，因为中心被假设为固定的。魔方的转体不计入步数，所以“双层”转动比如r就会被计作一步。</p>
+<p>所以下面这个公式就会被HTM计为11步: r2 U R' U' M U R U' R' r' （在F面做一个棱块三循环）。</p>
+<h2 id="qtm">QTM</h2>
+<p>Quarter Turn Metric (QTM)，是一种3x3魔方的度量标准。转动任意一个面顺时针90度或是逆时针90度，都被计作一步；不同于HTM的是转动半面会被计作两步而不是一步。要重点注意的一点是，QTM中内层转动可能被计为两步（四分之一个转动比如M）也可能被计为四步（二分之一个转动比如M2），因为中心，因为中心被假定为固定的。魔方的转体不计入步数，所以“双层”转动比如r依然会被计作一步。</p>
+<p>所以下面这个公式就会被QTM计为12步：r2 U R' U' M U R U' R' r' （在F面做一个棱块三循环）。</p>
+<h2 id="stm">STM</h2>
+<p>Slice Turn Ｍetric (STM)，是一种3x3魔方的度量标准。转动任意一层，任意角度都会被计作一步。跟HTM不同的是，内层转动会被计作一步，而不是两步。还有跟ATM不同的是，它不包括异向内层（译注：anti-slice，直译为反向夹层转动，slice为同向转动，比如M是R L'；而反向就是诸如R L这样的内层转动。）和其他同轴转动（比如R和L为同轴转动）。</p>
+<p>转体同样不计入步数。STM在那些频繁使用内层转动的方法中很流行，但官方比赛最少步项目使用的是HTM。</p>
+<p>所以下面这个公式就会被STM计为10步：r2 U R' U' M U R U' R' r' （在F面做一个棱块三循环）。</p>
+<h2 id="atm">ATM</h2>
+<p>Axial Turn Metric (ATM)，是一种3x3魔方的度量标准。同轴转动将会被计为一步。它包括四分之一层转动，二分之一层转动，内层转动以及异向内层转动。</p>
+<h2 id="etm">ETM</h2>
+<p>Execution Turn Metric (ETM)，是一种3x3魔方的度量标准。每一个动作都会被计作一步；这也包括转体步骤。因此，这个标准的解释会是主观的。比如，U2可以被算作一步，也可以被算作两步。</p>
+<p>ETM是David Woner发明的用来计算“真正”手速（TPS，turn per second)的方法。它主要是用来重现视频中能看到的转动有多少步。</p>
+<h4 id="etm_1">ETM 计步例子</h4>
+<div class="hlcode"><pre><span class="n">Cross</span><span class="o">:</span> <span class="n">L2</span> <span class="n">u</span> <span class="n">R</span><span class="s1">&#39; F&#39;</span> <span class="o">(</span><span class="mi">4</span> <span class="n">ETM</span><span class="o">)</span>
+<span class="n">F2L</span> <span class="mi">1</span><span class="o">:</span> <span class="n">L</span><span class="s1">&#39; U&#39;</span> <span class="n">L</span> <span class="n">d</span> <span class="n">R</span><span class="s1">&#39; U R (7 ETM)</span>
+<span class="s1">F2L 2: y&#39;</span> <span class="n">R</span> <span class="n">U</span><span class="s1">&#39; R&#39;</span> <span class="n">U2</span> <span class="n">R</span> <span class="n">U</span><span class="s1">&#39; R&#39;</span> <span class="o">(</span><span class="mi">8</span> <span class="n">ETM</span><span class="o">,</span> <span class="err">转体也会被计算在内</span><span class="o">)</span>
+<span class="n">F2L</span> <span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="o">:</span> <span class="n">y</span> <span class="n">L</span> <span class="n">U2</span> <span class="n">L</span><span class="s1">&#39; R U R&#39;</span> <span class="o">(</span><span class="mi">7</span> <span class="n">ETM</span><span class="o">,</span> <span class="err">转体被计算在内</span><span class="o">,</span> <span class="n">L</span><span class="s1">&#39; R 被算作两步而不是一步,因为（视频中）就是这么转动的)</span>
+<span class="s1">OLL: M U&#39;</span> <span class="n">M</span><span class="s1">&#39; U&#39;</span> <span class="n">U</span><span class="s1">&#39; M U&#39;</span> <span class="n">M</span><span class="s1">&#39; (8 ETM, 这些内层转动是通过内层转动的。而U2用左手食指轻拨亮瞎, 所以计作两步。</span>
+<span class="s1">PLL: R&#39;</span> <span class="n">U2</span> <span class="n">R</span> <span class="n">U</span><span class="s1">&#39; U&#39;</span> <span class="n">R</span><span class="s1">&#39; F R U R&#39;</span> <span class="n">U</span><span class="s1">&#39; R&#39;</span> <span class="n">F</span><span class="s1">&#39; R2 U&#39;</span> <span class="o">(</span><span class="mi">15</span> <span class="n">ETM</span><span class="o">,</span> <span class="err">第一个</span><span class="n">U2</span><span class="err">用的是右手食指中指连拨，所以计作一步。第二个</span><span class="n">U2</span><span class="err">又是左手食指连拨，所以计作两步。</span><span class="n">R2</span><span class="err">是只转动一次手腕，所以计作一步。</span><span class="o">)</span>
+<span class="n">Total</span> <span class="n">solve</span><span class="o">:</span> <span class="mi">56</span> <span class="n">QTM</span><span class="sr">/49 HTM/44 STM/</span><span class="mi">49</span> <span class="n">ETM</span>
+</pre></div>
+
+
+<h2 id="btm">BTM</h2>
+<p>Block Turn Metric(BTM)，是一种适用于高阶魔方的度量标准。连续几层同样的转动会被计作一步。</p>
+</div>
+
+        </div>
+        <div id="footer">
+            <span>
+                Copyright © 2012-2014 .
+                Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+            </span>
+        </div>
+        
+    </body>
+</html>
