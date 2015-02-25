@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+        <title>LLEF - </title>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="container">
+            
+<div id="header">
+  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#Cube">Cube</a>&nbsp;»&nbsp;LLEF</div>
+</div>
+<div class="clearfix"></div>
+<div id="title">LLEF</div>
+  <div id="content">
+  <p>LLEF (Last Layer Edges First) 是一种ELL(Edges of the Last Layer)的变式。它忽略了角块的影响，所以更容易得到解法。它比"normal ELL"使用更少的步数，也更少种情形。这种变式在一种用两段观察，最后解决角块的方法上很有用。但L4C并不用于速拧领域，有两个原因：首先它的公式量是CLL的两倍，而且这些公式大部分比较长（最差的LL Case就在这些公式里面，需要16步(HTM)）。另外，在完成角块之前完成棱块并不是很容易观察。如果你没有一套很系统的颜色观察法，你只能利用AUF去碰运气，甚至有时要重复做AUF。</p>
+<p>LLEF也用于一种叫BLL的三步复原最后一层的方法。这种方法使用24步，品均步数为27步。</p>
+<p>当然它在最少步中也很实用。LLEF的最优解平均步数很低，为7.87步，而L4C为11.73步（比PLL的最优平均步数多半步左右）。当然这些步数其实还可以更少。通常你可以选择它的逆向/镜像公式来处理一个相同的LLEF情形以提高消去步骤的可能性或者得到一个更好的角块情形。棱向控制可以用来避开四棱翻的情况。而角块可以用在前面插入三循环的方法来更高效地解决。</p>
+<p>LLEF是一组有48种情形的公式集的子集，一共15种情况。跳过这一步的几率是1/48，跳到EP（即色向均正确）这一步的几率是1/8，调到纯粹EO（即位置均正确）的几率是1/6。</p>
+<h1 id="_1">公式</h1>
+<blockquote>
+<p>要注意这里所有的公式都使用西方记法，小写字母代替双层转以及用x,y,z来表示转体。</p>
+</blockquote>
+<p>示意图中的角块都被处理为暗色，主要是为了指引那些不清楚配色方案或者是配色方案不同的玩家。其他情况下你可以忽略角块。</p>
+<p>每个case的第一个公式都是步数最优的公式（HTM）。</p>
+<h2 id="all-edges-oriented-ep">All edges oriented (EP)</h2>
+<h3 id="adjacent-swap-sune">Adjacent swap (Sune)</h3>
+<p><img alt="1" src="https://www.speedsolving.com/wiki/images/f/fc/LLE_OA.jpg" /></p>
+<p><strong>(y') R' U2 R U R' U R</strong> (7 HTM)</p>
+<h3 id="opposite-swap-t-pll">Opposite swap (T-PLL)</h3>
+<p><img alt="2" src="https://www.speedsolving.com/wiki/images/3/3a/LLE_OO.jpg" /></p>
+<p><strong>R' F R' u2 R F' R' u2 R2 F'</strong> (10 HTM)</p>
+<p><strong>R2 u R2 u' R2 y' R2 u' R2 u R2</strong> (10 HTM)</p>
+<h2 id="pure-flips-eo">Pure flips (EO)</h2>
+<h3 id="2-flip-adjacent">2-flip (Adjacent)</h3>
+<p><img alt="3" src="https://www.speedsolving.com/wiki/images/a/ad/LLE_2AP.jpg" /></p>
+<p><strong>R' U' R2 B' R' B2 U' B'</strong> (8 HTM)</p>
+<h3 id="2-flip-opposite">2-flip (Opposite)</h3>
+<p><img alt="4" src="https://www.speedsolving.com/wiki/images/2/2c/LLE_2OP.jpg" /></p>
+<p><strong>(y) R B L' B L B' U B' U' R'</strong> (10 HTM)</p>
+<h3 id="4-flip">4-flip</h3>
+<p><img alt="5" src="https://www.speedsolving.com/wiki/images/1/18/LLE_4P.jpg" /></p>
+<p><strong>R2 L' B R' B L U2 L' B R' L</strong> (11 HTM)</p>
+<h2 id="adjacent-swap">Adjacent swap</h2>
+<h3 id="adjacent-rf">Adjacent RF</h3>
+<p><img alt="6" src="https://www.speedsolving.com/wiki/images/2/26/LLE_ASFR.jpg" /></p>
+<p><strong>(y2) R2 L' B R' B R B2 R' B R' L</strong> (11 HTM)</p>
+<h3 id="adjacent-fl">Adjacent FL</h3>
+<p><img alt="7" src="https://www.speedsolving.com/wiki/images/c/c8/LLE_ASLF.jpg" /></p>
+<p><strong>F U R U' R' F'</strong> (6 HTM)</p>
+<h3 id="adjacent-lb">Adjacent LB</h3>
+<p><img alt="8" src="https://www.speedsolving.com/wiki/images/7/71/LLE_ASBL.jpg" /></p>
+<p><strong>(y) L' B' R B' R' B2 L</strong> (7 HTM)</p>
+<p><strong>r U R' U R U2 r' U'</strong> (8 HTM) </p>
+<p><strong>y r U2 R' U' R U' r' U</strong> (8 HTM)</p>
+<p><strong>M U M' U2 M U M' U'</strong> (12 HTM)</p>
+<h3 id="adjacent-br">Adjacent BR</h3>
+<p><img alt="9" src="https://www.speedsolving.com/wiki/images/c/ca/LLE_ASRB.jpg" /></p>
+<p><strong>(y') B' U' R' U R B</strong></p>
+<h3 id="opposite-rf">Opposite RF</h3>
+<p><img alt="10" src="https://www.speedsolving.com/wiki/images/c/c7/LLE_ASOF.jpg" /></p>
+<p><strong>(y2) F R U R' U' F'</strong> (6 HTM) </p>
+<p><strong>r U L' U' r' U L U' (x) U</strong> (8 HTM)</p>
+<h3 id="opposite-br">Opposite BR</h3>
+<p><img alt="11" src="https://www.speedsolving.com/wiki/images/4/4f/LLE_ASOB.jpg" /></p>
+<p><strong>F' L' U' L U F</strong> (6 HTM)</p>
+<h3 id="4-flip-a4">4-flip (A4)</h3>
+<p><img alt="12" src="https://www.speedsolving.com/wiki/images/a/a7/LLE_AS4.jpg" /></p>
+<p><strong>(y') B L U L' B' U2 B' R B R'</strong> (10 HTM)</p>
+<h2 id="opposite-swap">Opposite swap</h2>
+<p><img alt="13" src="https://www.speedsolving.com/wiki/images/8/8b/LLE_OSA.jpg" /></p>
+<p><strong>(y2) B' R' U R B L U' L'</strong> (8 HTM)</p>
+<h2 id="opposite-oo">Opposite (OO)</h2>
+<p><img alt="14" src="https://www.speedsolving.com/wiki/images/2/2c/LLE_OSO.jpg" /></p>
+<p><strong>B' R' U R B L' B L B2 U B</strong> (11 HTM)</p>
+<h2 id="4-flip-o4">4-flip (O4)</h2>
+<p><img alt="15" src="https://www.speedsolving.com/wiki/images/c/c5/LLE_OS4.jpg" /></p>
+<p><strong>R B' R' B U B2 L' B' L U' B'</strong> (11 HTM)</p>
+</div>
+
+        </div>
+        <div id="footer">
+            <span>
+                Copyright © 2012-2014 .
+                Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+            </span>
+        </div>
+        
+    </body>
+</html>
