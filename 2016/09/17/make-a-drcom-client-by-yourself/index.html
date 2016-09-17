@@ -84,12 +84,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://cuberl.com/index.html">
+<meta name="description" content="本文仅适用韶关学院Drcom客户端。
+因为自己需要经常用到Linux的缘故，所以打算把Linux上的网络问题搞定。学校使用的是Drcom认证客户端，在学校MIS系统上也提供了对应的Linux版本。可惜的是把一切依赖都弄好终于能运行后却总是秒断。这个程序并没有提供源码，我也无法获知是什么问题，所以打算干脆自己写一个，也就刚好分析一下Drcom的协议。
+0x00 工作准备
+抓包软件Wireshark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个Drcom客户端的实现">
+<meta property="og:url" content="http://cuberl.com/2016/09/17/make-a-drcom-client-by-yourself/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文仅适用韶关学院Drcom客户端。
+因为自己需要经常用到Linux的缘故，所以打算把Linux上的网络问题搞定。学校使用的是Drcom认证客户端，在学校MIS系统上也提供了对应的Linux版本。可惜的是把一切依赖都弄好终于能运行后却总是秒断。这个程序并没有提供源码，我也无法获知是什么问题，所以打算干脆自己写一个，也就刚好分析一下Drcom的协议。
+0x00 工作准备
+抓包软件Wireshark">
+<meta property="og:updated_time" content="2016-09-17T12:44:09.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="一个Drcom客户端的实现">
+<meta name="twitter:description" content="本文仅适用韶关学院Drcom客户端。
+因为自己需要经常用到Linux的缘故，所以打算把Linux上的网络问题搞定。学校使用的是Drcom认证客户端，在学校MIS系统上也提供了对应的Linux版本。可惜的是把一切依赖都弄好终于能运行后却总是秒断。这个程序并没有提供源码，我也无法获知是什么问题，所以打算干脆自己写一个，也就刚好分析一下Drcom的协议。
+0x00 工作准备
+抓包软件Wireshark">
 
 
 
@@ -110,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://cuberl.com/"/>
+  <link rel="canonical" href="http://cuberl.com/2016/09/17/make-a-drcom-client-by-yourself/"/>
 
-  <title> Hexo </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 一个Drcom客户端的实现 | Hexo </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,9 +146,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,9 +223,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -234,10 +245,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/09/17/make-a-drcom-client-by-yourself/" itemprop="url">
-                  一个Drcom客户端的实现
-                </a>
+                一个Drcom客户端的实现
               
             
           </h1>
@@ -277,9 +285,7 @@
       
 
       
-        
-          
-            <p>本文仅适用韶关学院Drcom客户端。</p>
+        <p>本文仅适用韶关学院Drcom客户端。</p>
 <p>因为自己需要经常用到Linux的缘故，所以打算把Linux上的网络问题搞定。学校使用的是Drcom认证客户端，在学校MIS系统上也提供了对应的Linux版本。可惜的是把一切依赖都弄好终于能运行后却总是秒断。这个程序并没有提供源码，我也无法获知是什么问题，所以打算干脆自己写一个，也就刚好分析一下Drcom的协议。</p>
 <h3 id="0x00-工作准备"><a href="#0x00-工作准备" class="headerlink" title="0x00 工作准备"></a>0x00 工作准备</h3><ul>
 <li>抓包软件Wireshark</li>
@@ -347,16 +353,20 @@
 <p>还有一个协程则负责两种心跳包的交替发送。这里注意发送心跳包是异步发送的，因为并不是每个心跳包都会收到回应，不能依赖于收到回应后再继续发送。<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 两种心跳包循环发送 */</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">pingCycle</span><span class="params">()</span></span> &#123;</div><div class="line">	time.Sleep(<span class="number">1</span> * time.Second)</div><div class="line">	<span class="keyword">for</span> &#123;</div><div class="line">		<span class="keyword">go</span> sendPing(<span class="number">1</span>)</div><div class="line">		time.Sleep(<span class="number">10</span> * time.Second)</div><div class="line">		<span class="keyword">go</span> send_38_bytes_alive()</div><div class="line">		time.Sleep(<span class="number">5</span> * time.Second)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>其他包的发送函数就只是简单的对数据进行封装，这里就不再一一给出。</p>
 <h3 id="0x06-总结"><a href="#0x06-总结" class="headerlink" title="0x06 总结"></a>0x06 总结</h3>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -367,16 +377,15 @@
 
       
       
-        <div class="post-eof"></div>
-      
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -384,6 +393,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -403,8 +416,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -440,6 +462,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x00-工作准备"><span class="nav-number">1.</span> <span class="nav-text">0x00 工作准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-EAP协议"><span class="nav-number">2.</span> <span class="nav-text">0x01 EAP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-认证过程的Go语言实现"><span class="nav-number">3.</span> <span class="nav-text">0x02 认证过程的Go语言实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-问题的发现"><span class="nav-number">4.</span> <span class="nav-text">0x03 问题的发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-心跳包的分析"><span class="nav-number">5.</span> <span class="nav-text">0x04 心跳包的分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x05-心跳包部分的Go语言实现"><span class="nav-number">6.</span> <span class="nav-text">0x05 心跳包部分的Go语言实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x06-总结"><span class="nav-number">7.</span> <span class="nav-text">0x06 总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -536,6 +569,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
